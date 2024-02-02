@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1706872753 source:c:\users\snmah\onedrive\documents\codesoft internships\c++ tasks\task 2\main.cpp
+	<iostream>
+	<cassert>
+	<sstream>
+
