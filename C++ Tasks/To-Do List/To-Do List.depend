@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1708432942 source:c:\users\snmah\onedrive\documents\codesoft internships\codesoft\c++ tasks\to-do list\list.cpp
+	"list.h"
+
+1708433043 source:c:\users\snmah\onedrive\documents\codesoft internships\codesoft\c++ tasks\to-do list\main.cpp
+	"list.h"
+
+1708433007 c:\users\snmah\onedrive\documents\codesoft internships\codesoft\c++ tasks\to-do list\list.h
+	<iostream>
+

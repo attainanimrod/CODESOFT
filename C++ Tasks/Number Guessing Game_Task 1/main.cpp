@@ -1,5 +1,6 @@
 #include<iostream>
 #include<ctime>
+#include<limits>
 
 using namespace std;
 //random number geneator function
@@ -9,6 +10,23 @@ int randomNumber(int intLow, int intHigh)
 
     return rand() % intRange + intLow;
 }
+
+//function for validating integer input from user
+double validateNumber(istream& LHS )
+{
+    int dblValue = 0;
+    ///validating user data
+    while(LHS.fail())
+    {
+        // Clear the error state from cin
+        LHS.clear();
+        // Ignore the invalid input in cin
+        LHS.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        LHS>>dblValue;
+    }
+    return dblValue;
+}
 int main()
 {
     bool blnReplay = true;
@@ -17,11 +35,22 @@ int main()
         //User Menu
         cout<<"Welcome to The Number Guessing game!! "<<endl
             <<"please enter the lowest number you want to guess from: "<<endl;
-        int intLowest = 0;
+        double intLowest = 0;
         cin>>intLowest;
+        //calling validate function
+        if(cin.fail())
+        {
+            intLowest = validateNumber(cin);
+        }
+
         cout<<"please enter the highest number you want to guess to: "<<endl;
         int intHighest = 0;
         cin>>intHighest;
+        //calling validate function
+        if(cin.fail())
+        {
+            intHighest = validateNumber(cin);
+        }
 
         //Validating user input
         while(intHighest <= intLowest)
@@ -30,8 +59,18 @@ int main()
 
             cout<<"please enter the lowest number you want to guess from: "<<endl;
             cin>>intLowest;
+            if(cin.fail())
+            {
+                intLowest = validateNumber(cin);
+            }
+
             cout<<"please enter the highest number you want to guess to: "<<endl;
             cin>>intHighest;
+            if(cin.fail())
+            {
+                intHighest = validateNumber(cin);
+            }
+
         }
         //seeding the random number generator
         srand(static_cast<unsigned int>(time(0)));
@@ -42,6 +81,10 @@ int main()
         //getting the user's gueesed number
         int intValue=0;
         cin>>intValue;
+        if(cin.fail())
+        {
+            intValue = validateNumber(cin);
+        }
 
         while(intRandom != intValue)
         {
@@ -51,6 +94,11 @@ int main()
                     <<"Enter new value: "<<endl;
                 //getting the user's gueesed number
                 cin>>intValue;
+                if(cin.fail())
+                {
+                    intValue = validateNumber(cin);
+                }
+
             }
             else if(intValue > intRandom)
             {
@@ -58,6 +106,10 @@ int main()
                     <<"Enter new value: "<<endl;
                 //getting the user's gueesed number
                 cin>>intValue;
+                if(cin.fail())
+                {
+                    intValue = validateNumber(cin);
+                }
             }
         }
 
@@ -73,6 +125,6 @@ int main()
     }
     while(blnReplay);
 
-	return 0;
+    return 0;
 
 }

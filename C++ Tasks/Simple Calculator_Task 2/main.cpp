@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cassert>
 #include<sstream>
+#include<limits>
 using namespace std;
 
 //addition function
@@ -43,16 +44,38 @@ int main()
 
     do
     {
+        system("cls");
         //Menu option
         cout<<"Welcome to The SIMPLE CALCULATOR"<<endl
             <<endl
             <<"You are expected to enter two numbers, "<<endl
             <<"then choose the operation you want me to perform."<<endl
             <<endl;
+
         cout<<"Enter the first number: ";
         cin>> dblFirstNum;
+        ///validating user data
+        while(cin.fail())
+        {
+            // Clear the error state from cin
+            std::cin.clear();
+            // Ignore the invalid input in cin
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            cin>>dblFirstNum;
+        }
+
         cout<<"Enter the second number: ";
         cin>> dblSecondNum;
+        while(cin.fail())
+        {
+            // Clear the error state from cin
+            std::cin.clear();
+            // Ignore the invalid input in cin
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            cin>>dblSecondNum;
+        }
 
         cout<<"Whoose the arithmetic operations you want me to perform,"<<endl
             <<"1. for Addition"<<endl
@@ -63,6 +86,16 @@ int main()
 
         ///Getting the user's option
         cin>>intOption;
+        while(cin.fail())
+        {
+            // Clear the error state from cin
+            std::cin.clear();
+            // Ignore the invalid input in cin
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            cin>>intOption;
+        }
+
 
         ///Using while loop to force user to choosing a valid option
         while(true)
@@ -102,6 +135,16 @@ int main()
                 cerr<<"You did not choose a valid option :("<<endl;
                 cout<<"Enter a valid option :) "<<endl;
                 cin>>intOption;
+                //validating user input
+        while(cin.fail())
+        {
+            // Clear the error state from cin
+            std::cin.clear();
+            // Ignore the invalid input in cin
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            cin>>intOption;
+        }
 
                 ///Go to the beginning of the while loop ie. switch statement.
                 continue;
@@ -116,6 +159,26 @@ int main()
         cout<<ssResult.str()<<endl<<endl;
         ///Clearing the content in the string stream
         ssResult.str("");
+
+        char chrRedo = '/0';
+        cout<<endl;
+        cout<<"Enter Y to do another calculation"<<endl;
+        cin>> chrRedo;
+
+        while(cin.fail())
+        {
+            // Clear the error state from cin
+            std::cin.clear();
+            // Ignore the invalid input in cin
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            cin>>chrRedo;
+        }
+        if(chrRedo != 'y' && chrRedo != 'Y')
+        {
+            blnContinue = false;
+        }
+
     }
     while(blnContinue);
 

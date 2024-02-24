@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1708265360 source:c:\users\snmah\onedrive\documents\codesoft internships\codesoft\c++ tasks\tic-tac-toe game\gameworld.cpp
+	"GAMEWORLD.H"
+
+1708278928 c:\users\snmah\onedrive\documents\codesoft internships\codesoft\c++ tasks\tic-tac-toe game\gameworld.h
+	<iostream>
+	<limits>
+
+1708278677 source:c:\users\snmah\onedrive\documents\codesoft internships\codesoft\c++ tasks\tic-tac-toe game\main.cpp
+	"GAMEWORLD.H"
+
